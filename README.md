@@ -1,5 +1,5 @@
 # Mind Eraser
-Mind Eraser is a Chrome extension that lets your users log in to external websites from your website. To get this functionality, you need to configure the desired HTML elements on your website and your users must have the Mind Eraser Chrome extension installed. This is a useful tool if your users are memorizing login details or copying/pasting them.
+Mind Eraser is a Chrome extension that lets your users log in to external websites from your website. To get this functionality, you need to configure the desired HTML elements on your website and your users must have the Mind Eraser Chrome extension installed. This is a useful tool if your users are memorizing login details or copying/pasting them for accounts they don't own.
 
 ## Security
 This extension should not be used to secure login credentials from your users. Your users will be able to locate the usernames and passwords to the external services by inspecting the DOM. Also, the website containing Mind Eraser elements should only be used over a secure HTTPS connection.
