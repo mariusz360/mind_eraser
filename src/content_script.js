@@ -13,7 +13,8 @@ function getDataFromMindEraserButton(mind_eraser_button) {
     "username_selector": mind_eraser_button.getAttribute("data-target-username-selector"), 
     "password_selector": mind_eraser_button.getAttribute("data-target-password-selector"), 
     "base64_encoded_username": mind_eraser_button.getAttribute("data-target-encoded-username"), 
-    "base64_encoded_password": mind_eraser_button.getAttribute("data-target-encoded-password")
+    "base64_encoded_password": mind_eraser_button.getAttribute("data-target-encoded-password"),
+    "form_button_selector": mind_eraser_button.getAttribute("data-target-form-button-selector")
   }
 }
 

@@ -15,7 +15,7 @@ function getParentElementOfTagType(element, parent_tag_type) {
   return null;
 }
 
-function submitLoginForm(username_selector, password_selector, base64_encoded_username, base64_encoded_password) {
+function submitLoginForm(username_selector, password_selector, base64_encoded_username, base64_encoded_password, form_button_selector) {
   var username_field = document.querySelector(username_selector);
   username_field.focus();
   username_field.value = atob(base64_encoded_username);
@@ -24,20 +24,22 @@ function submitLoginForm(username_selector, password_selector, base64_encoded_us
   password_field.focus();
   password_field.value = atob(base64_encoded_password);
 
-  var login_form = getParentElementOfTagType(username_field, "form");
-  if (login_form) {
-    login_form.submit();
+  if (form_button_selector) {
+    var form_button = document.querySelector(form_button_selector);
+    form_button.click();
   } else {
-    console.log("Can't locate login form!");
+    var login_form = getParentElementOfTagType(username_field, "form");
+    login_form.submit();
   }
 }
 
-function generateSubmitLoginFormScript(username_selector, password_selector, base64_encoded_username, base64_encoded_password) {
+function generateSubmitLoginFormScript(username_selector, password_selector, base64_encoded_username, base64_encoded_password, form_button_selector) {
   var variables = [
     "'" + username_selector + "'", 
     "'" + password_selector + "'", 
     "'" + base64_encoded_username + "'", 
-    "'" + base64_encoded_password + "'"
+    "'" + base64_encoded_password + "'",
+    "'" + form_button_selector + "'"
   ].join(", ")
 
   return [
@@ -117,7 +119,8 @@ chrome.extension.onMessage.addListener(function(request, sender, callback) {
     request.username_selector, 
     request.password_selector, 
     request.base64_encoded_username, 
-    request.base64_encoded_password
+    request.base64_encoded_password,
+    request.form_button_selector
   );
   
   mindEraserButtonClicked(target_url, login_url, login_script);
