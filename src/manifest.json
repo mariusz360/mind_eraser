@@ -1,7 +1,7 @@
 {
   "name": "Mind Eraser",
   "description": "Click a button, log into a web site.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Mariusz Lapinski",
   "manifest_version": 2,
   "permissions": ["tabs", "cookies", "https://*/*", "http://*/*", "file://*/*"],
